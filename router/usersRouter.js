@@ -3,9 +3,10 @@ const express = require("express");
 
 //Internal export
 const { getUsers } = require("../controller/usersController");
+const decorateHtmlResponse = require("../middlewares/common/decorateHTMLResponse");
 
 const router = express.Router();
 
-router.get("/", getUsers);
+router.get("/", decorateHtmlResponse("Users"), getUsers);
 
 module.exports = router;
