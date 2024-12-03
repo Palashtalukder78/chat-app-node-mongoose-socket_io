@@ -6,11 +6,11 @@ const { check } = require("express-validator");
 const { getUsers } = require("../controller/usersController");
 const decorateHtmlResponse = require("../middlewares/common/decorateHTMLResponse");
 const avatarUpload = require("../middlewares/users/avatarUpload");
-const { addUserValidator } = require("../middlewares/users/userValidator");
+const { addUserValidator, addUserValidatorHandler } = require("../middlewares/users/userValidator");
 
 const router = express.Router();
 
 router.get("/", decorateHtmlResponse("Users"), getUsers);
-router.post("/", avatarUpload, addUserValidator);
+router.post("/", avatarUpload, addUserValidator, addUserValidatorHandler);
 
 module.exports = router;
