@@ -1,6 +1,5 @@
 //external imports
 const express = require("express");
-const { check } = require("express-validator");
 
 //Internal export
 const { getUsers } = require("../controller/usersController");
